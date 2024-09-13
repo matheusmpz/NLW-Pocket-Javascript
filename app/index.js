@@ -1,17 +1,35 @@
-const start =() => {
+const { select } = require('@inquirer/prompts') 
+
+const start = async () => {
+
     while(true) {
-        let opcao = 'Cadastrar' // deifine onde ele vai entrar (caso)
+                    // await = aguardar | no caso a seleção do usuario
+        const opcao = await select({
+            message: 'Menu >',
+            /*Alternativas*/ choices: [
+                {
+                    name: 'Cadastrar meta', // O que é exibido
+                    value: 'cadastrar' // O que o sistema entende
+                },
+                {
+                    name: 'Sair', 
+                    value: 'sair'
+                },
+            ]
+        })
+
         switch(opcao) {
             case 'cadastrar': 
                 console.log('Vamos cadastrar')
-                break
+                break // retorna ao menu se opções
 
             case 'listar':
                 console.log('Listando')
-                break
+                break // retorna ao menu se opções
 
             case 'sair':
-                return // não precisa do break por ser o ultimo
+                console.log('Tchau')
+                return // acaba a função
         }
     }
 }

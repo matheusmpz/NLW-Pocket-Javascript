@@ -66,6 +66,11 @@ Uma lista que contém qualquer tipo de dado
 
 - [x] While
 
-### Condicional 
+# Condicional 
 
 - [x] Switch
+
+## Módulos em node.js
+
+- [x] Importação de modulos (requirer, CommonJS)
+- [x] Biblioteca 'inquirer' para criar prompts interativos
