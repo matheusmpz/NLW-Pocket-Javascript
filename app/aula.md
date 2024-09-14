@@ -74,3 +74,7 @@ Uma lista que contém qualquer tipo de dado
 
 - [x] Importação de modulos (requirer, CommonJS)
 - [x] Biblioteca 'inquirer' para criar prompts interativos
+
+## Programação assincrona e Promises:
+
+- Uso de funções assíncronas (async/await)

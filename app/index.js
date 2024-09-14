@@ -1,12 +1,13 @@
 const { select } = require('@inquirer/prompts') 
 
+             // Informando qua a função e assíncrona 
 const start = async () => {
 
     while(true) {
                     // await = aguardar | no caso a seleção do usuario
         const opcao = await select({
             message: 'Menu >',
-            /*Alternativas*/ choices: [
+            choices: [ //Alternativas 
                 {
                     name: 'Cadastrar meta', // O que é exibido
                     value: 'cadastrar' // O que o sistema entende
