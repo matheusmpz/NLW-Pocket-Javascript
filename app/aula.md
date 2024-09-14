@@ -39,24 +39,24 @@ Apresentar os dados
 - [x] Operadores de comparação: == != <= >= < >
 - [x] Spread operator: ...
 
-## Estruturas de dados:
+    ## Estruturas de dados:
 
-### Arrays: 
+    ### Arrays: 
 
-- [x] Uma lista que contém qualquer tipo de dado
-- [x] Métodos de array: push, [find, forEach, filter, map] : HOF (Higher Order Functions)
+        - [x] Uma lista que contém qualquer tipo de dado
+        - [x] Métodos de array: push, [find, forEach, filter, map] : HOF (Higher Order Functions)
 
-### Objetos:
+    ### Objetos:
 
-- [x] Atributos e métodos
-- [x] Criação e manipulação de objetos
-- [x] Acesso a propriedades de objetos
+        - [x] Atributos e métodos
+        - [x] Criação e manipulação de objetos
+        - [x] Acesso a propriedades de objetos
 
-### Functions
+    ### Functions
 
-- [x] criar, passar argumento
-- [x] excutar
-- [x] arrow function / named function
+        - [x] criar, passar argumento
+        - [x] excutar
+        - [x] arrow function / named function
 
 # Estrutura de repetição
 
@@ -67,18 +67,18 @@ Apresentar os dados
 - [x] switch
 - [x] if/else
 
-## Módulos em Node.js:
+    ## Módulos em Node.js:
 
-- [x] Importação de módulos (require, CommonJS)
-- [x] Biblioteca 'inquirer' para criar prompts interativos
-- [x] FS (file system)
+    - [x] Importação de módulos (require, CommonJS)
+    - [x] Biblioteca 'inquirer' para criar prompts interativos
+    - [x] FS (file system)
 
-## JSON
+    ## JSON
 
-- [x] Javascript Object Notation (.json)
-- [x] JSON.parse(): transforma de JSON para JS
-- [x] JSON.stringify(): transforma de JS para JSON
+    - [x] Javascript Object Notation (.json)
+    - [x] JSON.parse(): transforma de JSON para JS
+    - [x] JSON.stringify(): transforma de JS para JSON
 
-## Programação assíncrona e Promises:
+    ## Programação assíncrona e Promises:
 
-- [x] Uso de funções assíncronas (async/await)
+    - [x] Uso de funções assíncronas (async/await)
