@@ -1,7 +1,25 @@
-const { select } = require('@inquirer/prompts') 
+const { select, input } = require('@inquirer/prompts') 
 
-             // Informando qua a função e assíncrona 
-const start = async () => {
+let meta = {
+    value: 'Beber água',
+    checked: false,
+}
+let metas = []
+
+const cadastrarMeta = async () => {
+    const meta = await input({message: "Digite a meta:"})
+
+    if (meta.length == 0) {
+        console.log('A meta não pode ser vazia!')
+        return
+    }
+
+    metas.push(
+        { value: meta, checked: false }
+    )
+}
+            
+const start = async () => {   // (async) Informando qua a função e assíncrona 
 
     while(true) {
                     // await = aguardar | no caso a seleção do usuario
@@ -25,16 +43,17 @@ const start = async () => {
 
         switch(opcao) {
             case 'cadastrar': 
-                console.log('Vamos cadastrar')
-                break // retorna ao menu se opções
+                await /*Esperando toda a função ser executada*/ cadastrarMeta()
+                console.log(metas)
+                break 
 
             case 'listar':
                 console.log('Listando')
-                break // retorna ao menu se opções
+                break 
 
             case 'sair':
                 console.log('Tchau')
-                return // acaba a função
+                return 
         }
     }
 }

@@ -1,8 +1,9 @@
 ## Linguagem de programação
 
-Maneira de dar instruções ao computador
-Como um lego, você irá utilizar para criar algoritmos, ou seja para resolver problemas.
+Maneira de dar instrução ao computador.
+Como um lego, você irá utilizar peças para criar algoritmos, ou seja, para resolver problemas.
 
+> 💡 **Algoritmo**: Sequência de passos lógica e finita para resolução de um problema.
 
 ## Peças de uma linguagem
 
@@ -14,67 +15,70 @@ Como um lego, você irá utilizar para criar algoritmos, ou seja para resolver p
 - Controle de fluxo (if/else)
 - Estrutura de repetição (for, while)
 
+# Fases da resolução de um problema
 
-## Fases da resolução de um problema
+Coletar os dados
+Processar os dados (manipular, alterar ...)
+Apresentar os dados
 
-- Coletar os dados 
-- Processar os dados (manipular, alterar ...) 
-- Apresentar os dados
+## Escopo e variáveis:
 
-
-## Escopo e variáveis
-
-- Variáveis globais e locais
-- Constantes
-
+- [x] Variáveis globais e locais
+- [x] Constantes
 
 ## Tipos de dados:
 
-- string (texto)
-- number (1, 2, 3)
-- Function
+- [x] Strings (texto): "" '' ``
+- [x] Numbers: 2 1.4
+- [x] Boolean: true, false
 
-## Operadores
+# Operadores
 
-- Operadores de atribuição de valor
-- Operador de contatenação
+- [x] Operadores de atribuição de valor: =
+- [x] Operador de contatenação: +
+- [x] Operadores de comparação: == != <= >= < >
+- [x] Spread operator: ...
 
+## Estruturas de dados:
 
-## Estrutura de dados:
+### Arrays: 
 
-### Arrays:
-
-Uma lista que contém qualquer tipo de dado
+- [x] Uma lista que contém qualquer tipo de dado
+- [x] Métodos de array: push, [find, forEach, filter, map] : HOF (Higher Order Functions)
 
 ### Objetos:
 
-[x] Atributos e métodos
-[x] Criação e manipulação de objetos
-[x] Acesso a propriedades de objetos
+- [x] Atributos e métodos
+- [x] Criação e manipulação de objetos
+- [x] Acesso a propriedades de objetos
 
-## Functions
+### Functions
 
-[x] Criar metas 
-[x] Listar metas 
-[ ] Metas realizadas 
-[ ] Metas abertas 
-[x] Marcar/Desmarcar metas realizadas 
-[ ] Remover metas 
-[ ] Sistema de mensagens
+- [x] criar, passar argumento
+- [x] excutar
+- [x] arrow function / named function
 
-### Estrutura de repetição
+# Estrutura de repetição
 
-- [x] While
+- [x] while
 
-# Condicional 
+# Condicionais
 
-- [x] Switch
+- [x] switch
+- [x] if/else
 
-## Módulos em node.js
+## Módulos em Node.js:
 
-- [x] Importação de modulos (requirer, CommonJS)
+- [x] Importação de módulos (require, CommonJS)
 - [x] Biblioteca 'inquirer' para criar prompts interativos
+- [x] FS (file system)
 
-## Programação assincrona e Promises:
+## JSON
 
-- Uso de funções assíncronas (async/await)
+- [x] Javascript Object Notation (.json)
+- [x] JSON.parse(): transforma de JSON para JS
+- [x] JSON.stringify(): transforma de JS para JSON
+
+## Programação assíncrona e Promises:
+
+- [x] Uso de funções assíncronas (async/await)
