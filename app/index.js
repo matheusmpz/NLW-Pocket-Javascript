@@ -1,10 +1,10 @@
-const { select, input } = require('@inquirer/prompts') 
+const { select, input, checkbox } = require('@inquirer/prompts') 
 
 let meta = {
     value: 'Beber água',
     checked: false,
 }
-let metas = []
+let metas = [meta]
 
 const cadastrarMeta = async () => {
     const meta = await input({message: "Digite a meta:"})
@@ -18,7 +18,30 @@ const cadastrarMeta = async () => {
         { value: meta, checked: false }
     )
 }
-            
+    
+const listarMetas = async () => {
+    const respostas = await checkbox ({
+        message: 'Use as setas para mudar de meta, o espaço para marcar ou desmarca e o enter para finalizar!',
+        choices: [...metas],
+        instructions: false // Já escrevemos elas na message
+    })
+
+    if (respostas == 0) {
+        console.log('Nem uma meta selecionada!')
+        return
+    }
+
+    respostas.forEach((resposta) => {
+        const meta = metas.find((m) => {
+            return m.value == resposta
+        })
+
+        meta.checked = true
+    })
+
+    console.log('Meta(s) marcadas como concluída(s)!')
+}
+
 const start = async () => {   // (async) Informando qua a função e assíncrona 
 
     while(true) {
@@ -43,12 +66,12 @@ const start = async () => {   // (async) Informando qua a função e assíncrona
 
         switch(opcao) {
             case 'cadastrar': 
-                await /*Esperando toda a função ser executada*/ cadastrarMeta()
+                await cadastrarMeta()/* awiat == Esperando toda a função ser executada*/
                 console.log(metas)
                 break 
 
             case 'listar':
-                console.log('Listando')
+                await listarMetas()
                 break 
 
             case 'sair':
