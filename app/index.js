@@ -31,6 +31,12 @@ const listarMetas = async () => {
         return
     }
 
+    // Desmarcando todas para depois apenas as escolhidas ficarem verdadeiras
+    metas.forEach((m) => {
+        m.checked = false
+    })
+
+    // Selecionando as marcas e colocando como verdadeira
     respostas.forEach((resposta) => {
         const meta = metas.find((m) => {
             return m.value == resposta
