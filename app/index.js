@@ -12,6 +12,10 @@ const start = async () => {
                     value: 'cadastrar' // O que o sistema entende
                 },
                 {
+                    name: 'Listar metas',
+                    value: 'listar'
+                },
+                {
                     name: 'Sair', 
                     value: 'sair'
                 },
