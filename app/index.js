@@ -1,10 +1,11 @@
 const { select, input, checkbox } = require('@inquirer/prompts')
 const fs = require("fs").promises
 
-let mensagem = "Bem vindo ao App de Metas";
+let mensagem = "Bem vindo a sua Lista de Metas";
 
 let metas
 
+// Carregando metas (permitindo amazenar informações em em um aqrquivo JSON)
 const carregarMetas = async () => {
     try {
         const dados = await fs.readFile("metas.json", "utf-8")
@@ -15,6 +16,7 @@ const carregarMetas = async () => {
     }
 }
 
+//Indicando onde as metas devem ser armazenadas
 const salvarMetas = async () => {
     await fs.writeFile("metas.json", JSON.stringify(metas, null, 2))
 }
@@ -23,19 +25,19 @@ const cadastrarMeta = async () => {
     const meta = await input({ message: "Digite a meta:" })
 
     if (meta.length == 0) {
-        mensagem = 'A meta não pode ser vazia.'
+        mensagem = 'A meta não pode ser vazia.' // Para exibir na funçao de mostrar mensagem
         return
     }
 
     metas.push(
         { value: meta, checked: false }
     )
-    mensagem = "Meta cadastrada com sucesso!"
+    mensagem = "Meta cadastrada com sucesso!" // Para exibir na funçao de mostrar mensagem
 }
 
 const listarMetas = async () => {
-    if (metas.length == 0) {
-        mensagem = "Não existem metas!"
+    if (metas.length == 0) { // Quando o arquivo JSON ainda não possuir nem uma meta cadastrada
+        mensagem = "Não existem metas!" // Para exibir na funçao de mostrar mensagem
         return
     }
 
@@ -51,7 +53,7 @@ const listarMetas = async () => {
     })
 
     if (respostas.length == 0) {
-        mensagem = "Nenhuma meta selecionada!"
+        mensagem = "Nenhuma meta selecionada!" // Para exibir na funçao de mostrar mensagem
         return
     }
 
@@ -64,13 +66,13 @@ const listarMetas = async () => {
         meta.checked = true
     })
 
-    mensagem = 'Meta(s) marcada(s) como concluída(s)'
+    mensagem = 'Meta(s) marcada(s) como concluída(s)' // Para exibir na funçao de mostrar mensagem
 
 }
 
 const metasRealizadas = async () => {
-    if (metas.length == 0) {
-        mensagem = "Não existem metas!"
+    if (metas.length == 0) { // Quando o arquivo JSON ainda não possuir nem uma meta cadastrada
+        mensagem = "Não existem metas!" // Para exibir na funçao de mostrar mensagem
         return
     }
 
@@ -79,19 +81,19 @@ const metasRealizadas = async () => {
     })
 
     if (realizadas.length == 0) {
-        mensagem = 'Não existem metas realizadas! :('
+        mensagem = 'Não existem metas realizadas! :(' // Para exibir na funçao de mostrar mensagem
         return
     }
 
     await select({
-        message: "Metas Realizadas: " + realizadas.length,
+        message: "Metas Realizadas: " + realizadas.length, // Para exibir na funçao de mostrar mensagem
         choices: [...realizadas] // ... serve para copiar o array antigo e trazer para esse novo
     })
 }
 
 const metasAbertas = async () => {
-    if (metas.length == 0) {
-        mensagem = "Não existem metas!"
+    if (metas.length == 0) { // Quando o arquivo JSON ainda não possuir nem uma meta cadastrada
+        mensagem = "Não existem metas!" // Para exibir na funçao de mostrar mensagem
         return
     }
 
@@ -100,19 +102,19 @@ const metasAbertas = async () => {
     })
 
     if (abertas.length == 0) {
-        mensagem = 'Não existem metas abertas! :)'
+        mensagem = 'Não existem metas abertas! :)' // Para exibir na funçao de mostrar mensagem
         return
     }
 
     await select({
-        message: "Metas Abertas: " + abertas.length,
+        message: "Metas Abertas: " + abertas.length, // Para exibir na funçao de mostrar mensagem
         choices: [...abertas]
     })
 }
 
 const deletarMetas = async () => {
-    if(metas.length == 0) {
-        mensagem = "Não existem metas!"
+    if(metas.length == 0) { // Quando o arquivo JSON ainda não possuir nem uma meta cadastrada
+        mensagem = "Não existem metas!" // Para exibir na funçao de mostrar mensagem
         return
     }
 
@@ -121,19 +123,19 @@ const deletarMetas = async () => {
     })
 
     const itemsADeletar = await checkbox({
-        message: "Selecione item para deletar",
+        message: "Selecione item para deletar", // Para exibir na funçao de mostrar mensagem
         choices: [...metasDesmarcadas],
         instructions: false,
     })
 
     if (itemsADeletar.length == 0) {
-        mensagem = "Nenhum item para deletar!"
+        mensagem = "Nenhum item para deletar!" // Para exibir na funçao de mostrar mensagem
         return
     }
 
     itemsADeletar.forEach((item) => {
         metas = metas.filter((meta) => {
-            return meta.value != item
+            return meta.value != item // Só fica no novo array(escrito em cima do antigo) aqueles itens que são diferentes do que eu quero deletar
         })
     })
 
@@ -145,17 +147,20 @@ const mostrarMensagem = () => {
 
     if (mensagem != "") {
         console.log(mensagem)
-        console.log("")
+        console.log("") // quebrando a linha
         mensagem = ""
     }
 }
 
 const start = async () => { // (async) Informando qua a função e assíncrona
-    await carregarMetas()
+    
+    await carregarMetas() // Pegando metas armazenadas no doc JSON
 
     while (true) {
+
         mostrarMensagem()
-        await salvarMetas()
+
+        await salvarMetas() // Sempre que a função retornar a pg principal(menu) o JSON será atualizado instantaneamente
 
                     // await = aguardar | no caso a seleção do usuario
         const opcao = await select({
@@ -192,20 +197,25 @@ const start = async () => { // (async) Informando qua a função e assíncrona
             case "cadastrar":
                 await cadastrarMeta() /* awiat == Esperando toda a função ser executada*/
                 break
+
             case "listar":
                 await listarMetas()
                 break
+
             case "realizadas":
                 await metasRealizadas()
                 break
+
             case "abertas":
                 await metasAbertas()
                 break
+
             case "deletar":
                 await deletarMetas()
                 break
+
             case "sair":
-                console.log('Até a próxima!')
+                console.log('tchau')
                 return
         }
     }
