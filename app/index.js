@@ -26,15 +26,15 @@ const listarMetas = async () => {
         instructions: false // Já escrevemos elas na message
     })
 
-    if (respostas == 0) {
-        console.log('Nem uma meta selecionada!')
-        return
-    }
-
     // Desmarcando todas para depois apenas as escolhidas ficarem verdadeiras
     metas.forEach((m) => {
         m.checked = false
     })
+
+    if (respostas == 0) {
+        console.log('Nem uma meta selecionada!')
+        return
+    }
 
     // Selecionando as marcas e colocando como verdadeira
     respostas.forEach((resposta) => {
